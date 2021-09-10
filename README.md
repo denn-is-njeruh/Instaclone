@@ -1,2 +1,2 @@
 # Instaclone
-This is a clone application for the photo-website Instagram
+This is a clone application of the photo-website Instagram

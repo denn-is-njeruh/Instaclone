@@ -76,19 +76,19 @@ WSGI_APPLICATION = 'phiinsta.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
-PRODUCTION = environ.get('PRODUCTION')
-DATABASES = {}
-if PRODUCTION == 'True':
-    DATABASES['default'] = db_url.config()
-else:
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.postgresql',
-            'NAME': environ.get('DB_NAME'),
-            'USER': environ.get('DB_USER'),
-            'PASSWORD': environ.get('DB_PASSWORD'),
-        }
-    }
+# PRODUCTION = environ.get('PRODUCTION')
+# DATABASES = {}
+# if PRODUCTION == 'True':
+#     DATABASES['default'] = db_url.config()
+# else:
+#     DATABASES = {
+#         'default': {
+#             'ENGINE': 'django.db.backends.postgresql',
+#             'NAME': environ.get('DB_NAME'),
+#             'USER': environ.get('DB_USER'),
+#             'PASSWORD': environ.get('DB_PASSWORD'),
+#         }
+#     }
 
 
 # Password validation

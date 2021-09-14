@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'phiimages.apps.PhiimagesConfig'
+    'cloudinary'
 ]
 
 MIDDLEWARE = [

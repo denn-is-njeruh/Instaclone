@@ -40,12 +40,13 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    'phiimages.apps.PhiimagesConfig'
-    'cloudinary'
+    'phiimages.apps.PhiimagesConfig',
+    'cloudinary',
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -77,19 +78,19 @@ WSGI_APPLICATION = 'phiinsta.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
-# PRODUCTION = environ.get('PRODUCTION')
-# DATABASES = {}
-# if PRODUCTION == 'True':
-#     DATABASES['default'] = db_url.config()
-# else:
-#     DATABASES = {
-#         'default': {
-#             'ENGINE': 'django.db.backends.postgresql',
-#             'NAME': environ.get('DB_NAME'),
-#             'USER': environ.get('DB_USER'),
-#             'PASSWORD': environ.get('DB_PASSWORD'),
-#         }
-#     }
+PRODUCTION = environ.get('PRODUCTION')
+DATABASES = {}
+if PRODUCTION == 'True':
+    DATABASES['default'] = db_url.config()
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql',
+            'NAME': environ.get('DB_NAME'),
+            'USER': environ.get('DB_USER'),
+            'PASSWORD': environ.get('DB_PASSWORD'),
+        }
+    }
 
 
 # Password validation
@@ -136,7 +137,7 @@ if DEBUG:
 else:
     STATIC_ROOT = os.path.join(BASE_DIR,'staticfiles')
 
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+#STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 
 MEDIA_URL = '/media/'

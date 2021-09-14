@@ -11,7 +11,27 @@ class Image(models.Model):
   likes = models.PositiveIntegerField(default=0)
   profile = models.ForeignKey('Profile', on_delete=models.CASCADE, default='photo&bio')
 
+  def __str__(self):
+    return self.name
+
+  def save_image(self):
+    self.save()
+
+  def delete_image(self):
+    self.delete()
 
 class Profile(models.Model):
+  name = models.CharField(max_length=70, default='Phi')
   profile_photo = CloudinaryField('image', default='img.jpg')
   bio = models.TextField(default='Add Bio here')
+
+  def __str__(self):
+    return self.name
+
+  def save_profile(self):
+    self.save()
+
+  def delete_profile(self):
+    self.delete()
+
+  

@@ -5,6 +5,9 @@ include .env
 install:
 	pipenv install
 
+shell:
+	python manage.py shell
+
 serve:
 	python manage.py runserver
 
@@ -16,3 +19,6 @@ migrate:
 
 superuser:
 	python manage.py createsuperuser
+
+test:
+	python manage.py test

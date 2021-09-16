@@ -1,7 +1,19 @@
+{% extends 'all_phiimages/base.html' %}
 
-<form action="/registration/" method="POST">
-  {% csrf_token %}
+{% block content %} 
 
-  
+{% load crispy_forms_tags %}
 
-</form>
+<div class="container">
+  <h4>Register to see photos from your friends</h4>
+  <form method="POST">
+    {% csrf_token %}
+
+    {{register_form| crispy}}
+
+    <button class="btn btn-primary" type="submit">Register</button>
+  </form>
+  <p class="text-center">Already have an Account? <a href="/login">Login</a> Instead</p>
+</div>
+
+{% endblock %} 

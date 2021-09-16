@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "ee6be48f82fa438a9932c75b6eca98299b8f2fdc514091633c7d0ec717901d50"
+            "sha256": "9bde06a074a2793932acc73890a4a768edde0bc4e502e5b69a171426789d58b3"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -37,6 +37,13 @@
             "index": "pypi",
             "version": "==1.26.0"
         },
+        "confusable-homoglyphs": {
+            "hashes": [
+                "sha256:3b4a0d9fa510669498820c91a0bfc0c327568cecec90648cf3819d4a6fc6a751",
+                "sha256:e3ce611028d882b74a5faa69e3cbb5bd4dcd9f69936da6e73d33eda42c917944"
+            ],
+            "version": "==3.2.0"
+        },
         "dj-database-url": {
             "hashes": [
                 "sha256:4aeaeb1f573c74835b0686a2b46b85990571159ffc21aa57ecd4d1e1cb334163",
@@ -52,6 +59,14 @@
             ],
             "index": "pypi",
             "version": "==3.2.7"
+        },
+        "django-registration": {
+            "hashes": [
+                "sha256:2ea8c7d89a8760ccde41dfd335aa28ba89073d09aab5a0f5f3d7c8c148fcc518",
+                "sha256:e79fdbfa22bfaf4182efccb6604391391a7de19438d2669c5b9520a7708efbd2"
+            ],
+            "index": "pypi",
+            "version": "==3.2"
         },
         "psycopg2-binary": {
             "hashes": [

@@ -2,7 +2,7 @@ from django.contrib import auth
 from django.contrib.auth.forms import AuthenticationForm
 from django.shortcuts import render, redirect
 from .forms import NewUserForm
-from django.contrib.auth import login, authenticate
+from django.contrib.auth import login, authenticate, logout
 from django.contrib import messages
 
 
@@ -41,3 +41,8 @@ def login_user(request):
       messages.error(request, f'Invalid username or password')
   form = AuthenticationForm()
   return render(request, 'registration/login.html', {"login_form": form})
+
+def logout_user(request):
+  logout(request)
+  messages.info(request, f'You have successfully logged out.')
+  return redirect('index')

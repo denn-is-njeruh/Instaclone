@@ -1,6 +1,7 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
+from .models import Image,Comment
 
 class NewUserForm(UserCreationForm):
   email = forms.EmailField()
@@ -18,3 +19,13 @@ class NewUserForm(UserCreationForm):
     return user
 
 
+class CommentForm(forms.ModelForm):
+  class Meta:
+    model = Comment
+    exclude = ('user')
+
+
+class UploadImageForm(forms.ModelForm):
+  class Meta:
+    model = Image
+    exclude = ['comments', 'likes', 'profile']

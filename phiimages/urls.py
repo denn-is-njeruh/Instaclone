@@ -6,7 +6,7 @@ from . import views
 
 urlpatterns = [
   url(r'^$', views.index, name='index'),
-  url('accounts/register', views.register_new_user, name='register'),
+  url(r'accounts/register', views.register_new_user, name='register'),
   # url('accounts', include('django.contrib.auth.urls')),
   ]
 

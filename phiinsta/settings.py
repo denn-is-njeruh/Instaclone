@@ -43,8 +43,14 @@ INSTALLED_APPS = [
     'phiimages.apps.PhiimagesConfig',
     'cloudinary',
     'bootstrap5',
-    'crispy_forms',   
+    'crispy_forms',
+    'crispy_bootstrap5',
 ]
+
+CRISPY_ALLOWED_TEMPLATE_PACKS = 'bootstrap5'
+
+CRISPY_TEMPLATE_PACK = 'bootstrap5'
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -75,7 +81,6 @@ TEMPLATES = [
     },
 ]
 
-CRISPY_TEMPLATE_PACK = 'uni_form'
 
 WSGI_APPLICATION = 'phiinsta.wsgi.application'
 

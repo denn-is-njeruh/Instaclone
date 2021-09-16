@@ -1,15 +1,20 @@
-from django.contrib import auth
 from django.contrib.auth.forms import AuthenticationForm
 from django.shortcuts import render, redirect
 from .forms import NewUserForm
 from django.contrib.auth import login, authenticate, logout
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
+from .models import Image
 
 
 # Create your views here.
+@login_required(login_url='/login')
 def index(request):
+  image = request.GET.get('image')
+  if image is None:
+    images = Image.objects.all()
   message = 'Welcome to PhiInsta'
-  return render(request, 'index.html', {"message": message})
+  return render(request, 'index.html', {"message": message, "images":images})
 
 def register_new_user(request):
   if request.method == "POST":
@@ -46,3 +51,6 @@ def logout_user(request):
   logout(request)
   messages.info(request, f'You have successfully logged out.')
   return redirect('index')
+
+
+

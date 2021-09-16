@@ -4,6 +4,18 @@
 
 <div class="container">
   <h3 class="text-center text-dark">{{message}}</h3>
+  <div class="row">
+    {% for image in images %}
+    <div class="col-md-4">
+      <div class="card my-2">
+        <img src="{{image.photo.url}}" class="img-thumbnail" alt="">
+      </div>
+      <div class="card-body bg-dark">
+        <p class="text-center text-light">{{image.name}}</p>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
 </div>
 
 {% endblock %} 

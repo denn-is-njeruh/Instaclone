@@ -12,6 +12,7 @@ cloudinary = "*"
 whitenoise = "*"
 django-registration = "*"
 django-crispy-forms = "*"
+django-bootstrap-v5 = "*"
 
 [dev-packages]
 

@@ -42,7 +42,8 @@ INSTALLED_APPS = [
 
     'phiimages.apps.PhiimagesConfig',
     'cloudinary',
-    'crispy_forms',
+    'bootstrap5',
+    'crispy_forms',   
 ]
 
 MIDDLEWARE = [

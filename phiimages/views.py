@@ -5,6 +5,10 @@ from django.contrib import messages
 
 
 # Create your views here.
+def index(request):
+  message = 'Welcome to PhiInsta'
+  return(request, 'index.html', {"message": message})
+
 def register_new_user(request):
   if request.method == "POST":
     form = NewUserForm(request.POST)

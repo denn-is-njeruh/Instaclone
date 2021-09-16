@@ -24,8 +24,10 @@ class Image(models.Model):
   def delete_image(self):
     self.delete()
 
-  def update_image(self):
-    fetched_object = Image.objects.filter()
+  # def update_image(self):
+  #   fetched_object = Image.objects.filter(author=current_value).update(author=new_value)
+  #   return fetched_object
+
 
 class Profile(models.Model):
   name = models.CharField(max_length=70, default='Phi')

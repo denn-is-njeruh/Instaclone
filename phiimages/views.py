@@ -1,10 +1,10 @@
 from django.contrib.auth.forms import AuthenticationForm
 from django.shortcuts import render, redirect
-from .forms import NewUserForm
+from .forms import NewUserForm,CommentForm,UploadImageForm,ProfileEditForm
 from django.contrib.auth import login, authenticate, logout
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-from .models import Image
+from .models import Image,Comment
 
 
 # Create your views here.
@@ -51,6 +51,21 @@ def logout_user(request):
   logout(request)
   messages.info(request, f'You have successfully logged out.')
   return redirect('index')
+
+
+@login_required(login_url='/login')
+def new_image(request):
+  current_user = request.user
+  if request.method == 'POST':
+    form = UploadImageForm(request.POST, request.FILES)
+    if form.is_valid():
+      image = form.save(commit=False)
+      image.author = current_user
+      image.save()
+    return redirect('index')
+  else:
+    form = UploadImageForm
+  return render(request, 'new_image.html', {"image_form": form})
 
 
 

@@ -1,11 +1,11 @@
 ## Project Name
 **PhiInsta**
 
-## AUTHOR 
+## Author 
 **Dennis Njeru**
 
 
-## DESCRIPTION 
+## Description
 This is a clone application of the photo-website Instagram
 
 ## Features
@@ -45,26 +45,26 @@ Use the command given below to run automated tests.
         make test gallery
 
 
-## TECHNOLOGIES USED 
+## Technologies Used
 * Django - Web Framework
 * Python - For functionality
 * HTML - For building Mark Up pages/User Interface
 * CSS - For Styling User Interface
 
 
-## KNOWN BUGS
+## Known Bugs
 No known bugs at the moment.
 
 
-## CONTACTS
+## Contacts
 * Email: dennis.njeru@student.moringaschool.com 
 * LinkedIn: https://www.linkedin.com/in/dennis-gitonga-227246193/
 
-## LIVE LINK
+## Live Link
 
 
 
-## LICENSE 
+## License 
 [GNU GPL v3.0](./LICENSE)
 
 

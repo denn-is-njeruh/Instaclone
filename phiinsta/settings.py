@@ -42,6 +42,7 @@ INSTALLED_APPS = [
 
     'phiimages.apps.PhiimagesConfig',
     'cloudinary',
+    'crispy_forms',
 ]
 
 MIDDLEWARE = [
@@ -72,6 +73,8 @@ TEMPLATES = [
         },
     },
 ]
+
+CRISPY_TEMPLATE_PACK = 'uni_form'
 
 WSGI_APPLICATION = 'phiinsta.wsgi.application'
 

@@ -1,4 +1,3 @@
-import phiimages
 from django.contrib.auth.forms import AuthenticationForm
 from django.shortcuts import render, redirect
 from .forms import NewUserForm,CommentForm,UploadImageForm,ProfileEditForm
@@ -86,6 +85,6 @@ class ImageCreateView(LoginRequiredMixin,CreateView):
   template_name = 'new_image.html'
 
   def form_valid(self, form):
-    form.instance.user = self.request.user
+    form.instance.username = self.request.user
     return super().form_valid(form)
 

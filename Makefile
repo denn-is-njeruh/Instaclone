@@ -22,3 +22,6 @@ superuser:
 
 test:
 	python manage.py test
+
+herokurun:
+	heroku run python manage.py migrate

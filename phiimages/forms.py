@@ -22,17 +22,17 @@ class NewUserForm(UserCreationForm):
 class CommentForm(forms.ModelForm):
   class Meta:
     model = Comment
-    exclude = ('user')
+    exclude = ['user',]
 
 
 class UploadImageForm(forms.ModelForm):
   class Meta:
     model = Image
-    exclude = ['comments', 'likes', 'profile']
+    exclude = ['comments', 'likes', 'profile',]
 
 
 class ProfileEditForm(forms.ModelForm):
   class Meta:
     model = Profile
-    exclude = ['']
+    exclude = ['',]
 

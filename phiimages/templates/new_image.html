@@ -1,25 +1,24 @@
+{% extends 'all_phiimages/base.html' %}
+
 {% load crispy_forms_tags %} 
 
+{% block content %}
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>New Image</title>
-  {{form.media}}
-  {% block styles %} {% bootstrap_css %}
-</head>
-<body>
-  <form action="{% url 'new-image' %}" method="post" enctype="multipart/form-data">
-    {% csrf_token %} 
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <form method="post" enctype="multipart/form-data">
+          {% csrf_token %} 
+          <fieldset class="form-group">
+            <legend class="border-bottom mb-4">Upload an Image</legend>
+              {{ form | crispy }}
+          </fieldset>
+          <div class="form-group">
+            <input type="submit" class="btn btn-success btn-lg" value="Post">
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
 
-    {% image_form | crispy}
-    <input type="submit" class="btn btn-success btn-lg" value="Post">
-  </form>
-
-  {% block scripts %}
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    {% bootstrap_javascript %}
-  {% endblock %}
-</body>
-</html>
+{% endblock %}

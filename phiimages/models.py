@@ -1,7 +1,7 @@
 from django.db import models
 from cloudinary.models import CloudinaryField
 from django.contrib.auth.models import User
-from django.db.models.fields.related import ForeignKey
+from django.urls import reverse
 
 
 # Create your models here.
@@ -10,10 +10,10 @@ class Image(models.Model):
   caption = models.TextField(default='caption')
   comments = models.TextField(default='comment here')
   photo = CloudinaryField('image',default='photo.jpeg')
-  author = models.ForeignKey(User, blank=True, on_delete=models.CASCADE, related_name='the_phi')
+  username = models.ForeignKey(User, on_delete=models.CASCADE, default='1')
   likes = models.PositiveIntegerField(default=0)
   time_created = models.DateTimeField(auto_now=True, auto_now_add=False)
-  profile = models.ForeignKey('Profile', on_delete=models.CASCADE, default='photo&bio')
+  #profile = models.ForeignKey('Profile', on_delete=models.CASCADE, default=1)
 
   def __str__(self):
     return self.name
@@ -23,6 +23,9 @@ class Image(models.Model):
 
   def delete_image(self):
     self.delete()
+
+  def get_absolute_url(self):
+    return reverse('index')
 
   # def update_image(self):
   #   fetched_object = Image.objects.filter(author=current_value).update(author=new_value)

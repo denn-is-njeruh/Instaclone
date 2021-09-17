@@ -2,18 +2,20 @@ from django.db import models
 from cloudinary.models import CloudinaryField
 from django.contrib.auth.models import User
 from django.urls import reverse
+from django.utils import timezone
 
 
 # Create your models here.
 class Image(models.Model):
   name = models.CharField(max_length=35)
   caption = models.TextField(default='caption')
-  comments = models.TextField(default='comment here')
   photo = CloudinaryField('image',default='photo.jpeg')
   username = models.ForeignKey(User, on_delete=models.CASCADE, default='1')
-  likes = models.PositiveIntegerField(default=0)
-  time_created = models.DateTimeField(auto_now=True, auto_now_add=False)
-  #profile = models.ForeignKey('Profile', on_delete=models.CASCADE, default=1)
+  posted_on = models.DateTimeField(default=timezone.now)
+
+
+  class Meta:
+    ordering = ['posted_on']
 
   def __str__(self):
     return self.name
@@ -49,12 +51,16 @@ class Profile(models.Model):
 
 class Comment(models.Model):
   user = models.ForeignKey(User, on_delete=models.CASCADE)
-  post = models.ForeignKey('Image', null=True, on_delete=models.CASCADE)
-  comment = models.TextField(default='Comment Here')
-  posted_on = models.DateTimeField(auto_now=True)
+  post = models.ForeignKey('Image', null=True, on_delete=models.CASCADE, related_name='comment')
+  body = models.TextField(default='Comment Here')
+  posted_on = models.DateTimeField(default=timezone.now)
+  active = models.BooleanField(default=False)
+
+  class Meta:
+    ordering = ['posted_on']
 
   def __str__(self):
-    return self.comment
+    return 'Comment {} by {}'.format(self.body, self.user)
 
   def save_comment(self):
     self.save()

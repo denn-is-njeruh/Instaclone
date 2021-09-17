@@ -88,3 +88,12 @@ class ImageCreateView(LoginRequiredMixin,CreateView):
     form.instance.username = self.request.user
     return super().form_valid(form)
 
+
+class CommentCreateView(LoginRequiredMixin,CreateView):
+  form_class = CommentForm
+  template_name = 'new_comment.html'
+
+  def form_valid(self, form):
+    form.instance.username = self.request.user
+    return super().form_valid(form)
+

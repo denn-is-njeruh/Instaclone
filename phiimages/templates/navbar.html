@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
   </head>
   <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-light">
       <div class="container-fluid">
-        <a class="navbar-brand" href="">Phi Images</a>
+        <a class="navbar-brand text-light" href="">Phi Instagram Clone</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -15,30 +15,32 @@
 
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="">Home</a>
+              <a class="nav-link active" aria-current="page" href=""><img class="logo" height=30px src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Instagram_logo.svg/840px-Instagram_logo.svg.png" alt="Instagram"></a>
             </li>
           </ul>
+
+          <form class="" role="search" action="">
+            <div class="input-group">
+              <input class="form-control form-control-sm" type="search" placeholder="Search" aria-label="Search">
+              <button class="btn btn-outline-secondary" id="button-addon2" type="submit"><i class="glyphicon glyphicon-search"></i>Search</button>
+            </div>
+          </form>
 
           <ul class="navbar-nav mr-auto">
             {% if user.is_authenticated %} 
             <li class="nav-item">
-              <a class="nav-link" href="/logout">Logout</a>
+              <a class="nav-link text-dark" href="/logout">Logout</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Welcome, {{user.username}}</a>
+              <a class="nav-link text-dark" href="#">{{user.username}}</a>
             </li>
             {% else %} 
             <li class="nav-item">
-              <a class="nav-link" href="/login">Login</a>
+              <a class="nav-link text-dark" href="/login">Login</a>
             </li>
             {% endif %}
           </ul>
 
-          <form class="d-flex" role="search" action="">
-            <input class="form-control me-2" type="search" placeholder="Search User" aria-label="Search">
-            <button class="btn btn-outline-secondary" type="submit"><i class="glyphicon glyphicon-search"></i>Search</button>
-          </form>
-          
         </div>
       </div>
     </nav>

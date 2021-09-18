@@ -22,7 +22,7 @@ class NewUserForm(UserCreationForm):
 class CommentForm(forms.ModelForm):
   class Meta:
     model = Comment
-    exclude = ['user',]
+    fields = ['user', 'body']
 
 
 class UploadImageForm(forms.ModelForm):

@@ -27,7 +27,7 @@ class Image(models.Model):
     self.delete()
 
   def get_absolute_url(self):
-    return reverse('index')
+    return reverse('image-detail')
 
   # def update_image(self):
   #   fetched_object = Image.objects.filter(author=current_value).update(author=new_value)
